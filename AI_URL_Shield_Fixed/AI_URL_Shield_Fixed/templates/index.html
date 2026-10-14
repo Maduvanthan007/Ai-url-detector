@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b16">
+  <title>AI URL Shield | Threat Protection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="brand-mark">⬡</span><span><b>URL<span class="cyan-text">SHIELD</span></b><small>AI SECURITY SYSTEM</small></span></a>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#overview">◈ &nbsp; Overview</a>
+    <a class="nav" href="#scanner">⌕ &nbsp; URL Scanner</a>
+    <a class="nav" href="#history">◷ &nbsp; Scan History</a>
+    <div class="side-bottom"><div class="online-box"><span class="dot"></span><b>Protection Active</b><p>URL analysis engine ready</p><small>SYSTEM STATUS <strong>ONLINE</strong></small></div><div class="profile"><span class="avatar">AI</span><span><b>Security Analyst</b><small>Hackathon Demo</small></span></div></div>
+  </aside>
+  <main class="main" id="overview">
+    <header class="topbar"><div><div class="crumb">WORKSPACE <span>/</span> OVERVIEW</div><h1>Threat Protection Center</h1></div><div class="engine"><span class="dot"></span> AI ENGINE ONLINE</div></header>
+    <section class="hero"><div><div class="eyebrow">— INTELLIGENT WEB SECURITY</div><h2>Stay one step ahead<br>of <span>digital threats.</span></h2><p>Analyze suspicious links with URL feature analysis and risk scoring.</p><div class="tags"><span>✦ URL ANALYSIS</span><span>◈ RISK DETECTION</span><span>⌁ QUICK SCANNING</span></div></div><div class="shield-art"><div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="shield">✓</div><span class="float-tag tag1">URL ANALYSIS <b>● ACTIVE</b></span><span class="float-tag tag2">RISK MONITOR <b>● LIVE</b></span></div></section>
+    <section class="scanner panel" id="scanner"><div class="section-title"><span class="scanner-icon">⌕</span><div><h3>Intelligent URL Scanner</h3><p>Enter a website address to inspect its security signals.</p></div><span class="ready"><span class="dot"></span> READY TO SCAN</span></div><form id="scan-form"><label for="url">TARGET URL</label><div class="input-row"><span class="lock">⌑</span><input id="url" name="url" placeholder="https://example.com" autocomplete="url" required><button id="scan-button" type="submit">⌕ &nbsp; SCAN URL <b>→</b></button></div><div class="scanner-foot"><span>◈ URL structure analysis</span><span>◈ Suspicious keyword detection</span><span>◈ Risk scoring</span></div></form><div id="scan-message" role="status"></div></section>
+    <section id="result" aria-live="polite"></section>
+    <section class="stats"><article class="stat panel"><div>URLS SCANNED <span>⌕</span></div><strong id="total-scans">0</strong><small>Scans in this session</small></article><article class="stat panel"><div>THREATS FLAGGED <span class="red">⚠</span></div><strong id="threat-count">0</strong><small>Potential risks detected</small></article><article class="stat panel"><div>SAFE RESULTS <span class="green">✓</span></div><strong id="safe-count">0</strong><small>Classified as likely safe</small></article><article class="stat panel"><div>ENGINE STATUS <span class="purple">✳</span></div><strong class="active-text">ACTIVE</strong><small>Local prototype mode</small></article></section>
+    <section class="bottom-grid"><article class="panel" id="history"><div class="panel-head"><div><h3>Recent Scan Activity</h3><p>Your latest URL analysis results</p></div><span class="pill">SESSION LOG</span></div><div class="table-wrap"><table><thead><tr><th>URL TARGET</th><th>STATUS</th><th>RISK</th></tr></thead><tbody id="history-body"><tr><td colspan="3" class="empty">No scans yet. Try scanning a URL above.</td></tr></tbody></table></div></article><article class="panel"><div class="panel-head"><div><h3>Detection Signals</h3><p>What the scanner evaluates</p></div><span class="cyan-text">◉</span></div><div class="signal"><span>⌑</span><div><b>HTTPS Protocol</b><small>Encrypted connection indicator</small></div></div><div class="signal"><span>⌘</span><div><b>Suspicious Keywords</b><small>Login and verification patterns</small></div></div><div class="signal"><span>#</span><div><b>URL Structure</b><small>Length, symbols and IP patterns</small></div></div><p class="note">ⓘ Results are estimates, not a verified website reputation check.</p></article></section>
+    <footer><b>⬡ AI URL SHIELD</b><span>EDUCATIONAL HACKATHON PROTOTYPE · USE CAUTION WITH UNKNOWN LINKS</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const passedUrl = new URLSearchParams(window.location.search).get('url');
+      const input = document.getElementById('url');
+      const form = document.getElementById('scan-form');
+      if (passedUrl && input && form) { input.value = passedUrl; form.requestSubmit(); }
+    });
+  </script>
+</body>
+</html>
